@@ -14,7 +14,7 @@ const routes: Routes = [
     component: ListComponent,
   },
   {
-    path: 'list/edit/:id',
+    path: 'list/vehicle/edit/:id',
     component: VehicleEditorComponent,
   },
 ];

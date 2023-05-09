@@ -1,4 +1,5 @@
 import { Component, inject } from '@angular/core';
+import { map } from 'rxjs';
 import { Vehicle } from 'src/app/model/vehicle';
 import { VehicleService } from 'src/app/service/vehicle.service';
 
@@ -10,6 +11,12 @@ import { VehicleService } from 'src/app/service/vehicle.service';
 export class VehicleListComponent {
 
   vehicleService = inject(VehicleService);
+
+  ngOnInit() {
+  
+    this.vehicleList$ = this.vehicleService.getAll().pipe(map((vehicleList$: any) => {return vehicleList$.sortBy('expiration_date');}));
+
+  }
   vehicleList$ = this.vehicleService.getAll();
 
   onRemoveConsume(vehicle:Vehicle): void {

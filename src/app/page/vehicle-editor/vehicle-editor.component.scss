@@ -1,0 +1,12 @@
+input.ng-invalid{
+    background-color: rgb(238, 131, 131);
+}
+.error-message{
+    color:red;
+    font-style: italic;
+    font-size: 0.8em;
+    &.error-hidden{
+        visibility: hidden;
+    }
+}
+
