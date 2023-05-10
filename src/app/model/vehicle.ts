@@ -4,5 +4,6 @@ export class Vehicle {
     car_make: string = 'Lada';
     car_model: string = '2104';
     year: number = 1987;
-    expiration_date: Date = new Date(2023,6,11);
+    expiration_date: number = 1672784330000;
+    date?: string = '';
 }

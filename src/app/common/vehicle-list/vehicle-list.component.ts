@@ -12,14 +12,23 @@ export class VehicleListComponent {
 
   vehicleService = inject(VehicleService);
 
-  ngOnInit() {
-  
-    this.vehicleList$ = this.vehicleService.getAll().pipe(map((vehicleList$: any) => {return vehicleList$.sortBy('expiration_date');}));
-
-  }
   vehicleList$ = this.vehicleService.getAll();
 
-  onRemoveConsume(vehicle:Vehicle): void {
+
+
+ sort()
+ {
+  this.vehicleList$ = this.vehicleList$.pipe(map((vehicle) =>{ vehicle.sort((a , b ) => {
+    return a.expiration_date < b.expiration_date ? -1 : 1;
+  });
+  return vehicle;
+}))
+ }
+ a$ = this.sort();
+  
+
+
+  onRemoveVehicle(vehicle:Vehicle): void {
     if(!confirm('Are you sure you want to remove this vehicle?')) {
       return;
     }

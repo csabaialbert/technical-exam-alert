@@ -1,1 +1,22 @@
-<p>alerts works!</p>
+<ul class="list-group">
+    
+        <div *ngFor="let vehicle of vehicleList$ | async" style="margin-top:20px;">
+        <div *ngIf="(vehicle.expiration_date - currentTimestamp$) < 2801920000;" >
+            <li  class="list-group-item" class="alert-box">
+        <i class="fa fa-warning"></i>
+       ID: {{ vehicle.id }} - VIN: {{ vehicle.vin }} - Expire date: {{vehicle.expiration_date | date:'yyyy.MM.dd.'}}
+        <div class="btn-group" style="float: right">
+            <button [routerLink]="['/', 'list', 'vehicle', 'edit', vehicle.id]" class="btn btn-info">
+                <i class="fa fa-pencil"></i>
+            </button>
+            <button (click)="onRemoveVehicle(vehicle)"  class="btn btn-danger">
+                <i class="fa fa-trash"></i>
+            </button>
+        </div>
+    </li>
+    </div>
+</div>
+   
+    <div *ngIf="(vehicleList$ | async)?.length; else elseBlock"></div>
+<ng-template #elseBlock>There are no records in the database.</ng-template>
+</ul>

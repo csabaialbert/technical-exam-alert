@@ -1,16 +1,16 @@
 <ul class="list-group">
+    <div *ngIf="(vehicleList$ | async)?.length; else elseBlock"></div>
         <li *ngFor="let vehicle of vehicleList$ | async" class="list-group-item">
             <i class="fa fa-car"></i>
-           ID: {{ vehicle.id }} - VIN: {{ vehicle.vin }} - Expire date: {{ vehicle.expiration_date}}
+           ID: {{ vehicle.id }} - VIN: {{ vehicle.vin }} - Expire date: {{vehicle.expiration_date | date:'yyyy.MM.dd.'}}
             <div class="btn-group" style="float: right">
                 <button [routerLink]="['/', 'list', 'vehicle', 'edit', vehicle.id]" class="btn btn-info">
                     <i class="fa fa-pencil"></i>
                 </button>
-                <button (click)="onRemoveConsume(vehicle)"  class="btn btn-danger">
+                <button (click)="onRemoveVehicle(vehicle)"  class="btn btn-danger">
                     <i class="fa fa-trash"></i>
                 </button>
             </div>
         </li>
-        <div *ngIf="(vehicleList$ | async)?.length; else elseBlock"></div>
     <ng-template #elseBlock>There are no records in the database.</ng-template>
   </ul>

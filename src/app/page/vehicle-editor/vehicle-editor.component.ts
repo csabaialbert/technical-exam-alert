@@ -23,15 +23,27 @@ export class VehicleEditorComponent {
 
     vehicle$ = this.ar.params.pipe(switchMap(params => this.vehicleService.get(params['id'])),
     map( vehicle => {
+      vehicle.date = this.formatDate(vehicle.expiration_date);
       return vehicle;
     })
     );
 
+    formatDate(expiration_date: number): string {
+      const date = new Date(expiration_date*1);
+      const year = date.getFullYear();
+      const month = date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1;
+      const day = date.getDate() < 10 ? '0' + date.getDate()  : date.getDate() ;
+      return `${year}-${month}-${day}`;
+    }
+
   onUpdate(vehicle: Vehicle): void{
+    vehicle.expiration_date = new Date(vehicle.date || 0).getTime();
+    delete vehicle.date;
     this.vehicleService.update(vehicle).subscribe(
-      () => this.router.navigate(['/admin'])
+      () => this.router.navigate(['/list'])
     );
   }
+  
 
 
 }
