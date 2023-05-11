@@ -1,4 +1,11 @@
 nav {
-    background-color: #49c5ff;
-    .navbar-brand { color: #f0f0f0;}
+    background-color: rgba(40, 40, 255, 0.658);
+    .navbar-brand { color: #ffffff;}
+    padding-top: 40px;
+    padding-bottom: 40px;
+    
+
+}
+nav:hover {
+    background-color: rgba(64, 64, 248, 0.658);
 }

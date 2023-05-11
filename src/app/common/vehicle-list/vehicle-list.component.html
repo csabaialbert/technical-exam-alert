@@ -1,6 +1,17 @@
+<div class="bg">
+<div *ngIf="(vehicleList$ | async)?.length; else elseBlock">
+    <h6 class="text-center " style="margin-top: 40px">
+        The list below contains all registered vehicles in our database. The items are ordered by the expiration date of the technical exam.
+    </h6>
+    <p class="text-center " style="margin-top: 40px; margin-bottom: 100px">
+      To edit the items, you can click on the blue button with pencil icon, but if
+      you want to delete an item click on the red button.
+    </p>
+  </div>
+  <ng-template #elseBlock>There are no records in the database.</ng-template>
 <ul class="list-group">
     <div *ngIf="(vehicleList$ | async)?.length; else elseBlock"></div>
-        <li *ngFor="let vehicle of vehicleList$ | async" class="list-group-item">
+        <li *ngFor="let vehicle of vehicleList$ | async" class="list-group-item opbg">
             <i class="fa fa-car"></i>
            ID: {{ vehicle.id }} - VIN: {{ vehicle.vin }} - Expire date: {{vehicle.expiration_date | date:'yyyy.MM.dd.'}}
             <div class="btn-group" style="float: right">
@@ -13,4 +24,4 @@
             </div>
         </li>
     <ng-template #elseBlock>There are no records in the database.</ng-template>
-  </ul>
+  </ul></div>

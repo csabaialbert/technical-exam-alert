@@ -1,22 +1,36 @@
-<ul class="list-group">
-    
-        <div *ngFor="let vehicle of vehicleList$ | async" style="margin-top:20px;">
-        <div *ngIf="(vehicle.expiration_date - currentTimestamp$) < 2801920000;" >
-            <li  class="list-group-item" class="alert-box">
-        <i class="fa fa-warning"></i>
-       ID: {{ vehicle.id }} - VIN: {{ vehicle.vin }} - Expire date: {{vehicle.expiration_date | date:'yyyy.MM.dd.'}}
-        <div class="btn-group" style="float: right">
-            <button [routerLink]="['/', 'list', 'vehicle', 'edit', vehicle.id]" class="btn btn-info">
-                <i class="fa fa-pencil"></i>
-            </button>
-            <button (click)="onRemoveVehicle(vehicle)"  class="btn btn-danger">
-                <i class="fa fa-trash"></i>
-            </button>
-        </div>
-    </li>
-    </div>
+<div class="bg">
+<div *ngIf="(vehicleList$ | async)?.length; else elseBlock">
+  <h1 class="text-center text-capitalize" style="margin-top: 30px">Welcome!</h1>
+  <h6 class="text-center text-capitalize" style="margin-top: 40px">
+    The vehicles shown below need to pass a technical exam in less than a month, to be
+    suitable for road traffic.
+  </h6>
+  <p class="text-center" style="margin-top: 40px">
+    To edit the items, you can click on the blue button with pencil icon, but if
+    you want to delete an item click on the red button.
+  </p>
 </div>
-   
-    <div *ngIf="(vehicleList$ | async)?.length; else elseBlock"></div>
 <ng-template #elseBlock>There are no records in the database.</ng-template>
+<ul class="list-group">
+  <div *ngFor="let vehicle of vehicleList$ | async" >
+    <div *ngIf="vehicle.expiration_date - currentTimestamp$ < 2801920000">
+      <li class="list-group-item" class="alert-box" style="margin-top: 20px; list-style-type: none">
+        <i class="fa fa-warning" style="padding-left: 20px;"></i>
+        ID: {{ vehicle.id }} - VIN: {{ vehicle.vin }} - Expire date:
+        {{ vehicle.expiration_date | date : "yyyy.MM.dd." }}
+        <div class="btn-group" style="float: right">
+          <button
+            [routerLink]="['/', 'list', 'vehicle', 'edit', vehicle.id]"
+            class="btn btn-info"
+          >
+            <i class="fa fa-pencil"></i>
+          </button>
+          <button (click)="onRemoveVehicle(vehicle)" class="btn btn-danger" >
+            <i class="fa fa-trash"></i>
+          </button>
+        </div>
+      </li>
+    </div>
+  </div>
 </ul>
+</div>

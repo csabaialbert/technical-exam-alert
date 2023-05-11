@@ -1,4 +1,4 @@
-<div class="row" *ngIf="vehicle$ | async as vehicle">
+<div class="row bg" *ngIf="vehicle$ | async as vehicle">
     <div class="col-6 offset-3">
         <form #cForm="ngForm" (ngSubmit)="onUpdate(vehicle)">
             <div class="form-group">

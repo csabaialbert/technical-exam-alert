@@ -1,0 +1,22 @@
+.opbg{
+    background-color: rgba(110, 220, 253, 0.6);
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.bg{
+    margin-top: 100px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: rgba(240, 248, 255, 0.685);
+    box-shadow: 0 0 5px 10px rgba(240, 248, 255, 0.685);
+}
+
+.opbg:hover {
+    background-color: rgba(213, 232, 248, 0.685);
+}
+
+
+.bg:hover {
+    background-color: rgba(235, 250, 255, 0.685);
+}

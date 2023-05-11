@@ -542,7 +542,7 @@
       "car_make": "Pontiac",
       "car_model": "Grand Am",
       "year": 1989,
-      "expiration_date": "1683800206000"
+      "expiration_date": 1746921600000
     },
     {
       "id": 69,
@@ -7422,7 +7422,7 @@
       "car_make": "Ford",
       "car_model": "ZX2",
       "year": 2003,
-      "expiration_date": "1683734950000"
+      "expiration_date": 1691625600000
     },
     {
       "id": 930,
