@@ -4,6 +4,17 @@
     margin-bottom: 10px;
 }
 
+.opbgred{
+    background-color: rgb(253, 139, 110);
+    box-shadow: 0 0 5px 10px rgba(253, 139, 110, 0.685);
+
+}
+
+.opbgred:hover{
+    background-color: rgba(241, 115, 83, 0.61);
+    box-shadow: 0 0 5px 10px rgba(250, 152, 127, 0.911);
+}
+
 .bg{
     margin-top: 100px;
     padding-top: 50px;

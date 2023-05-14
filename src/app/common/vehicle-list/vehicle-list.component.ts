@@ -13,6 +13,8 @@ export class VehicleListComponent {
   vehicleService = inject(VehicleService);
 
   vehicleList$ = this.vehicleService.getAll();
+  today = new Date();
+  currentTimestamp$ = this.today.getTime();
 
 
 
