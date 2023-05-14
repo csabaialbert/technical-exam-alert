@@ -1,3 +1,11 @@
+# Rövid leírás
+
+Az adatbázis személygépjárműveket tartalmaz. A gépjárművek rendelkeznek egy azonosítóval, alvázszámmal, gyártóval, modellel, gyártási évvel és egy műszaki vizsga lejárati dátummal. Három oldal található az alkalmazásban, ezek a következők: 
+  - Alerts: Ez a nyitólap, ezen az oldalon azok a gépjárművek vannak felsorolva, amelyek műszaki vizsgája vagy lejárt, vagy pedig egy hónapon belül le fog járni.
+  - List: Ez az oldal az egész listát tartalmazza, viszont itt a lista a lejárati dátum szerint van felsorolva, és a lejárt vagy lejárathoz közeli vizsga érvényességek találhatóak a lista elején egy figyelmeztető ikonnal és a dátum pirossal kiemelve.
+  - Edit nézet: Ezen a lapon a megnyitott jármű adatai módosíthatóak és elmenthetőek. 
+
+
 # TechnicalExamAlert
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.6.
