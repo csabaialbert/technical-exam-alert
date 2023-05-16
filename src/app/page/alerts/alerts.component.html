@@ -21,11 +21,11 @@
         <div class="btn-group" style="float: right">
           <button
             [routerLink]="['/', 'list', 'vehicle', 'edit', vehicle.id]"
-            class="btn btn-info"
+            class="btn btn-outline-primary"
           >
             <i class="fa fa-pencil"></i>
           </button>
-          <button (click)="onRemoveVehicle(vehicle)" class="btn btn-danger" >
+          <button (click)="onRemoveVehicle(vehicle)" class="btn btn-outline-danger" >
             <i class="fa fa-trash"></i>
           </button>
         </div>

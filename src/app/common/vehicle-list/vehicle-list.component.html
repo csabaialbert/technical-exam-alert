@@ -15,12 +15,12 @@
             <div *ngIf="vehicle.expiration_date - currentTimestamp$ < 2801920000" >
             <i class="fa fa-warning"></i>
            ID: {{ vehicle.id }} - VIN: {{ vehicle.vin }} 
-           <p style="color: tomato;"><strong> Expire date: {{vehicle.expiration_date | date:'yyyy.MM.dd.'}} </strong></p>
-            <div class="btn-group" style="float: right">
-                <button [routerLink]="['/', 'list', 'vehicle', 'edit', vehicle.id]" class="btn btn-primary">
+           <p style="color: rgb(156, 65, 49);"><strong> Expire date: {{vehicle.expiration_date | date:'yyyy.MM.dd.'}} The exam will expire soon or it's expired. Please note the date!  </strong></p>
+            <div class="btn-group-vertical" style=" position: absolute; top: 2.5px; right: 10px;">
+                <button [routerLink]="['/', 'list', 'vehicle', 'edit', vehicle.id]" class="btn btn-outline-primary">
                     <i class="fa fa-pencil"></i>
                 </button>
-                <button (click)="onRemoveVehicle(vehicle)"  class="btn btn-danger">
+                <button (click)="onRemoveVehicle(vehicle)"  class="btn btn-outline-danger">
                     <i class="fa fa-trash"></i>
                 </button>
             </div>
@@ -29,10 +29,10 @@
                 <i class="fa fa-car"></i>
                ID: {{ vehicle.id }} - VIN: {{ vehicle.vin }} - Expire date: {{vehicle.expiration_date | date:'yyyy.MM.dd.'}}
                 <div class="btn-group" style="float: right">
-                    <button [routerLink]="['/', 'list', 'vehicle', 'edit', vehicle.id]" class="btn btn-info">
+                    <button [routerLink]="['/', 'list', 'vehicle', 'edit', vehicle.id]" class="btn btn-outline-primary">
                         <i class="fa fa-pencil"></i>
                     </button>
-                    <button (click)="onRemoveVehicle(vehicle)"  class="btn btn-danger">
+                    <button (click)="onRemoveVehicle(vehicle)"  class="btn btn-outline-danger">
                         <i class="fa fa-trash"></i>
                     </button>
                 </div>
